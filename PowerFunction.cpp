@@ -1,6 +1,17 @@
 #include<iostream>
 using namespace std;
 
+/*
+
+Given an integer array nums of unique elements, return all possible 
+subsets
+ (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+ 
+*/
+
 long long int Factorial(int a,int b){
  if(b==0){
     return 1;
