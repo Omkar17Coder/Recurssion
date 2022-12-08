@@ -14,11 +14,12 @@ class Solution {
 public:
 
 void Helper(vector<int>&cand,int i,int k,vector<vector<int>>&ans,vector<int>&ds){
-    if(i==cand.size()){
-        if(k==0){
-            ans.push_back(ds);
+   if(k==0){
+       ans.push_back(ds);
+       return;
         }
-        return;
+    if(i==cand.size()){
+     return;
     }
     if(cand[i]<=k){
         ds.push_back(cand[i]);
