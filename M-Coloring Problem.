@@ -1,0 +1,48 @@
+/*                                    M-Coloring Problem              */
+
+
+
+// Good Problem For Backtracking and Rwecurssion since, we have to explore combination of all color and check if any of the combination can be applied.
+
+
+
+
+
+#include <bits/stdc++.h>
+bool isSafe(int node,vector<int>&color,vector<vector<int>>&mat,int N,int i){
+    
+   for(int j=0;j<N;j++){
+     if(j!=node && mat[node][j]==1 && color[j]==i){
+         return false;
+     }
+   }
+    
+return true;
+
+}
+
+bool solve(int node,vector<int>&color,vector<vector<int>>&mat,int N,int m){
+  if(node==N){
+      return true;
+  }  
+ for(int i=1;i<=m;i++){
+     if(isSafe(node,color,mat,N,i)){
+         color[node]=i;
+     if(solve(node+1,color,mat,N,m)){
+         return true;
+     }
+     color[node]=0; 
+     }
+
+ }
+    return false;
+}
+string graphColoring(vector<vector<int>> &mat, int m) {
+    int N=mat.size();
+ vector<int>color(N,0);
+    
+    if(solve(0,color,mat,N,m)){
+        return "YES";
+    }
+    return "NO";
+}
